@@ -1,0 +1,6 @@
+venv
+raw
+
+__pycache__
+
+config.toml
