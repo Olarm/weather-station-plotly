@@ -10,10 +10,12 @@ from data import get_data
 df = get_data()
 
 app = Dash()
+app.title = "Rennodden"
+
 
 app.layout = [
-    html.H1(children='Title of Dash App', style={'textAlign':'center'}),
-    dcc.Dropdown(df.keys()[2:], 'T_out', id='dropdown-selection'),
+    html.H1(children='Rennodden værstasjon ved Dalskilen', style={'textAlign':'center'}),
+    dcc.Dropdown(df.keys()[2:], 'Temperatur ute', id='dropdown-selection'),
     dcc.Graph(id='graph-content'),
     dcc.DatePickerSingle(
         month_format='Do, MMM YY',
