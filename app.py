@@ -27,6 +27,7 @@ app.layout = [
     dcc.Dropdown(df.keys()[2:], 'Temperatur ute', id='dropdown-selection'),
     html.Div(['Fra: ',
         dcc.DatePickerSingle(
+            display_format='D/M/Y',
             month_format='Do, MMM YY',
             placeholder='Do, MMM YY',
             min_date_allowed=date(2022, 1, 1),
@@ -36,11 +37,12 @@ app.layout = [
         ),
         "Til: ",
         dcc.DatePickerSingle(
+            display_format='D/M/Y',
             month_format='Do, MMM YY',
             placeholder='Do, MMM YY',
             min_date_allowed=date(2022, 1, 1),
             max_date_allowed=date.today(),
-            date=date.today() - timedelta(days=1),
+            date=date.today(),
             id='date-to'
         )],
         style={'fontSize': 20},
