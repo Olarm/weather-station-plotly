@@ -3,7 +3,7 @@ Description=Plotly Dash dashboard showing weather station data
 After=network.target multi-user.target
 
 [Service]
-ExecStart=/opt/weather-station-plotly/venv/bin/python /home/ola/dev/shiptracker/main.py
+ExecStart=bash /opt/weather-station-plotly/run_prod.sh
 Type=simple
 Restart=always
 WorkingDirectory=/opt/weather-station-plotly
