@@ -55,7 +55,7 @@ app.layout = [
 def update_graph(value, date_from, date_to):
     date_from = datetime.strptime(date_from, "%Y-%m-%d").date()
     date_to = datetime.strptime(date_to, "%Y-%m-%d").date()
-    df = get_data(date_from)
+    df = get_data(date_from, date_to)
     return px.line(df, x='timestamp', y=value)
 
 if __name__ == '__main__':
