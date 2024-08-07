@@ -1,0 +1,12 @@
+[Unit]
+Description=Plotly Dash dashboard showing weather station data
+After=network.target multi-user.target
+
+[Service]
+ExecStart=/opt/weather-station-plotly/venv/bin/python /home/ola/dev/shiptracker/main.py
+Type=simple
+Restart=always
+WorkingDirectory=/opt/weather-station-plotly
+
+[Install]
+WantedBy=multi-user.target
