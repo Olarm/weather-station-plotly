@@ -28,7 +28,7 @@ def file_path(selected_date):
 
 
 def get_data(date_from=date.today() - timedelta(days=1), date_to=date.today()):
-    dt = timedelta(days=1)
+    dt = timedelta(days=0)
     if date_to > date_from:
         dt = date_to - date_from
 
