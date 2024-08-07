@@ -24,6 +24,7 @@ app.title = "Rennodden"
 
 app.layout = [
     html.H1(children='Rennodden værstasjon ved Dalskilen', style={'textAlign':'center'}),
+    html.H4(children='(Under utbygging)', style={'textAlign':'center'}),
     dcc.Dropdown(df.keys()[2:], 'Temperatur ute', id='dropdown-selection'),
     html.Div(['Fra: ',
         dcc.DatePickerSingle(
