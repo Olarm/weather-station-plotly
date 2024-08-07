@@ -35,20 +35,24 @@ def get_data(date_from=date.today() - timedelta(days=1), date_to=date.today() - 
     dfs = []
     for d in range(dt.days):
         path = file_path(date_from+timedelta(days=d))
-        temp_df = pd.read_csv(path, names=[
-            "timestamp", 
-            "interval", 
-            "Luftfuktighet inne", 
-            "Temperatur inne", 
-            "Luftfuktighet ute", 
-            "Temperatur ute", 
-            "Absolutt trykk", 
-            "Vind gjennomsnitt", 
-            "Vindkast", 
-            "Vindretning", 
-            "Regn akkumulert time", 
-            "Regn akkumulert år"
-        ])
+        try:
+            temp_df = pd.read_csv(path, names=[
+                "timestamp", 
+                "interval", 
+                "Luftfuktighet inne", 
+                "Temperatur inne", 
+                "Luftfuktighet ute", 
+                "Temperatur ute", 
+                "Absolutt trykk", 
+                "Vind gjennomsnitt", 
+                "Vindkast", 
+                "Vindretning", 
+                "Regn akkumulert time", 
+                "Regn akkumulert år"
+            ])
+        except FileNotFoundError:
+            continue
+        temp_df = temp_df.drop(columns=["Luftfuktighet inne", "Temperatur inne"])
         temp_df.timestamp = pd.to_datetime(temp_df.timestamp, format="%Y-%m-%d %X")
         dfs.append(temp_df)
 
