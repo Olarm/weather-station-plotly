@@ -27,13 +27,13 @@ def file_path(selected_date):
     return(path)
 
 
-def get_data(date_from=date.today() - timedelta(days=1), date_to=date.today() - timedelta(days=1)):
+def get_data(date_from=date.today() - timedelta(days=1), date_to=date.today()):
     dt = timedelta(days=1)
     if date_to > date_from:
         dt = date_to - date_from
 
     dfs = []
-    for d in range(dt.days):
+    for d in range(dt.days + 1):
         path = file_path(date_from+timedelta(days=d))
         try:
             temp_df = pd.read_csv(path, names=[
